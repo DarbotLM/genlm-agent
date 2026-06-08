@@ -1,0 +1,32 @@
+site_name: GenLM-Agent documentation
+site_url: https://genlm.ai/agent
+
+theme:
+  name: material
+
+nav:
+  - Overview: index.md
+  - Usage:
+      - Hello world: usage/hello_world.md
+      - Task engine: usage/task_engine.md
+  - API:
+      - Agent: reference/agent.md
+      - Task engine: reference/task_engine.md
+      - Verification: reference/verification.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [glmagent]
+          options:
+            merge_init_into_class: true
+            show_root_heading: true
+            members_order: source
+            filters:
+              - "!^_"
+
+repo_url: https://github.com/darbotlabs/glm-agent
+repo_name: glm-agent/glm-agent
