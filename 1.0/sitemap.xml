@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://darbotlm.github.io/genlm-agent/1.0/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-09</lastmod>
     </url>
     <url>
          <loc>https://darbotlm.github.io/genlm-agent/1.0/reference/agent/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-09</lastmod>
+    </url>
+    <url>
+         <loc>https://darbotlm.github.io/genlm-agent/1.0/reference/swarm/</loc>
+         <lastmod>2026-06-09</lastmod>
     </url>
     <url>
          <loc>https://darbotlm.github.io/genlm-agent/1.0/reference/task_engine/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-09</lastmod>
     </url>
     <url>
          <loc>https://darbotlm.github.io/genlm-agent/1.0/reference/verification/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-09</lastmod>
     </url>
     <url>
          <loc>https://darbotlm.github.io/genlm-agent/1.0/usage/hello_world/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-09</lastmod>
+    </url>
+    <url>
+         <loc>https://darbotlm.github.io/genlm-agent/1.0/usage/observational_review/</loc>
+         <lastmod>2026-06-09</lastmod>
     </url>
     <url>
          <loc>https://darbotlm.github.io/genlm-agent/1.0/usage/task_engine/</loc>
-         <lastmod>2026-06-08</lastmod>
+         <lastmod>2026-06-09</lastmod>
     </url>
 </urlset>

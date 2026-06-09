@@ -326,6 +326,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#observational-review-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observational review swarm
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -451,6 +462,34 @@
     
   
     Task engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="usage/observational_review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Observational review
   
 
     
@@ -602,6 +641,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reference/swarm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swarm review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -674,6 +741,17 @@
     <span class="md-ellipsis">
       
         Evidence framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#observational-review-swarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observational review swarm
       
     </span>
   </a>
@@ -799,6 +877,12 @@
 </tbody>
 </table>
 <p>Evidence carries a <code>data_timestamp</code>, a freshness window, and a scope. Stale or out-of-scope evidence fails the Observation Gate.</p>
+<h3 id="observational-review-swarm">Observational review swarm</h3>
+<p>A swarm of reviewer agents, each with a uniquely challenging perspective, can
+challenge any observation or agent step. Reviewers run in a single parallel
+round, a serial chain, or a serial chain of parallel rounds. Each perspective
+(skeptic, freshness auditor, strength auditor, coverage auditor, security
+reviewer, red team) approves only when the observation withstands its challenge.</p>
 <h2 id="modules">Modules</h2>
 <table>
 <thead>
@@ -819,6 +903,10 @@
 <tr>
 <td><code>glmagent.verification</code></td>
 <td><code>Evidence</code>, <code>EvidenceLevel</code>, <code>extract_evidence</code>, claim helpers</td>
+</tr>
+<tr>
+<td><code>glmagent.swarm</code></td>
+<td><code>ObservationalReviewer</code>, <code>ReviewRound</code>, <code>ReviewChain</code>, challenging perspectives</td>
 </tr>
 <tr>
 <td><code>glmagent.run</code></td>
