@@ -15,8 +15,9 @@ GenLM-Agent is a **verification-first** coding-agent toolkit. Every action passe
 | `TaskEngineAgent` | Repository-aware agent for small structured coding models |
 | `SemanticDecisionTree` | Finite-state layer controller (`triage → localize → edit → verify → complete`) |
 | `AdaptiveFlashcardDeck` | Compact verified memory that replaces full trajectory replay |
+| `ObservationalReviewer` | Swarm of challenging reviewer perspectives, run in parallel rounds or serial chains |
 | Evidence framework | Typed evidence with freshness, strength, and scope checks |
-| CLI | Shell entrypoint for observation verification |
+| CLI | Shell entrypoint for observation verification and review |
 
 ## Installation
 
@@ -59,6 +60,22 @@ triage → localize → edit → verify → complete
 ```
 
 Each layer exposes only the task kinds appropriate for that phase. Verified facts and failure patterns are compressed into adaptive flashcards — no full trajectory replay needed.
+
+### Observational review swarm
+
+A swarm of reviewer agents, each with a uniquely challenging perspective,
+challenges an observation or agent step. They run in three modes:
+
+| Mode | Behavior |
+|------|----------|
+| `parallel` | All perspectives challenge the same target concurrently in one round |
+| `series` | Each perspective runs in turn and sees the prior reviewers' verdicts |
+| `chain` | A serial chain of parallel rounds; later rounds inherit all prior verdicts |
+
+The default panel ships six uniquely challenging perspectives — `skeptic`,
+`freshness-auditor`, `strength-auditor`, `coverage-auditor`, `security-reviewer`,
+and `red-team` — each with a deterministic heuristic so review runs reproducibly
+without an external model. Plug in a `ReviewModel` to back any perspective with an LLM.
 
 ## Quick start
 
@@ -126,12 +143,33 @@ task = TaskSpec(
 result = agent.step(task, snapshot)
 ```
 
+### Python API — ObservationalReviewer
+
+```python
+from glmagent.swarm import ObservationalReviewer, ReviewMode, ReviewTarget
+
+target = ReviewTarget.from_observation(
+    "repo tests passed at 2026-03-09T12:00:00Z\nall checks passed",
+    scope_items=["repo"],
+)
+
+reviewer = ObservationalReviewer.with_default_panel()
+result = reviewer.review(target, mode=ReviewMode.CHAIN)
+
+print(result.approved)
+for verdict in result.verdicts:
+    print(verdict.perspective, verdict.approved, verdict.rationale)
+```
+
 ## CLI reference
 
 ```
 glmagent [--version]
 glmagent verify-observation --text TEXT [--scope SCOPE]
 glmagent verify-observation --file PATH  [--scope SCOPE]
+glmagent review-observation --text TEXT [--scope SCOPE] [--action ACTION]
+                            [--perspective NAME ...] [--mode parallel|series|chain]
+glmagent review-observation --file PATH  [--scope SCOPE]
 ```
 
 ## Running tests

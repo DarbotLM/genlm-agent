@@ -39,6 +39,14 @@ Typed evidence with an ordered strength hierarchy:
 
 Evidence carries a `data_timestamp`, a freshness window, and a scope. Stale or out-of-scope evidence fails the Observation Gate.
 
+### Observational review swarm
+
+A swarm of reviewer agents, each with a uniquely challenging perspective, can
+challenge any observation or agent step. Reviewers run in a single parallel
+round, a serial chain, or a serial chain of parallel rounds. Each perspective
+(skeptic, freshness auditor, strength auditor, coverage auditor, security
+reviewer, red team) approves only when the observation withstands its challenge.
+
 ## Modules
 
 | Module | Purpose |
@@ -46,6 +54,7 @@ Evidence carries a `data_timestamp`, a freshness window, and a scope. Stale or o
 | `glmagent.agent` | `VerifiedAgent`, `AgentConfig`, `StepResult` |
 | `glmagent.task_engine` | `TaskEngineAgent`, `TaskSpec`, `SemanticDecisionTree`, `AdaptiveFlashcardDeck` |
 | `glmagent.verification` | `Evidence`, `EvidenceLevel`, `extract_evidence`, claim helpers |
+| `glmagent.swarm` | `ObservationalReviewer`, `ReviewRound`, `ReviewChain`, challenging perspectives |
 | `glmagent.run` | CLI entrypoint |
 
 ## Getting started

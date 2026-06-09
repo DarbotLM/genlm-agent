@@ -203,6 +203,15 @@ def build_agent_manifest(agent_type: str = "verified") -> AgentManifest:
                 "required": ["agent_id", "role", "handoff_policy"],
             },
         ),
+        IntegrationContract(
+            name="observational-review",
+            kind="tool",
+            description="Swarm of challenging reviewer perspectives over an observation, run in parallel rounds or serial chains.",
+            schema={
+                "type": "object",
+                "required": ["perspectives", "mode", "target"],
+            },
+        ),
     ]
 
     if agent_type == "task-engine":

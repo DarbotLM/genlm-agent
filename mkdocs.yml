@@ -9,10 +9,12 @@ nav:
   - Usage:
       - Hello world: usage/hello_world.md
       - Task engine: usage/task_engine.md
+      - Observational review: usage/observational_review.md
   - API:
       - Agent: reference/agent.md
       - Task engine: reference/task_engine.md
       - Verification: reference/verification.md
+      - Swarm review: reference/swarm.md
 
 plugins:
   - search
