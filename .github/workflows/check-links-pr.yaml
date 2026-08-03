@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
-    - uses: tcort/github-action-markdown-link-check@v1.1.2
+    - uses: tcort/github-action-markdown-link-check@v1.1.3
       with:
         use-quiet-mode: 'yes'
         use-verbose-mode: 'yes'
